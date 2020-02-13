@@ -42,7 +42,7 @@ public class ThreadsRunner extends Thread {
     public void run() {
         try {
             semaphore.acquire();
-            LOGGER.debug("Start task2.thread: " + id);
+            LOGGER.debug("Start thread: " + id);
             int element = 0;
             while (threadsId.contains(element)) {
                 element = random.nextInt(matrix.getNumberOfThreads() + 1);
