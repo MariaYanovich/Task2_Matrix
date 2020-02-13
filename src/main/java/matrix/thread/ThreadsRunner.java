@@ -45,19 +45,19 @@ public class ThreadsRunner extends Thread {
             LOGGER.debug("Start thread: " + id);
             int element = 0;
             while (setOfThreadsId.contains(element)) {
-                element = random.nextInt(matrix.getNumberOfThreads() + 1);
+                element = generateRandom(matrix.getNumberOfThreads() + 1);
             }
             setOfThreadsId.add(element);
             matrix.setElement(counter, counter, element);
             boolean isInitialized = false;
-            int i = random.nextInt(matrixSize);
+            int i = generateRandom(matrixSize);
             if (!matrix.getElementOfMatrixOfInitializationBool(counter, i) && i != counter) {
                 matrix.setElement(counter, i, element);
                 isInitialized = true;
             }
             if (!isInitialized) {
                 while (matrix.getElementOfMatrixOfInitializationBool(i, counter) || i == counter) {
-                    i = random.nextInt(matrixSize);
+                    i = generateRandom(matrixSize);
                 }
                 matrix.setElement(i, counter, element);
             }
@@ -81,6 +81,10 @@ public class ThreadsRunner extends Thread {
             matrix.setMatrixOfInitializationBool(new boolean[matrixSize][matrixSize]);
             counter = 0;
         }
+    }
+
+    private int generateRandom(int bound) {
+        return random.nextInt(bound);
     }
 
 }
