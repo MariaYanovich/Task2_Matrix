@@ -15,7 +15,6 @@ public class Main {
             new ThreadsRunner(semaphore, matrixService, i).start();
             TimeUnit.MILLISECONDS.sleep(100);
         }
-
     }
 }
 

@@ -1,9 +1,9 @@
 package matrix.thread;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import matrix.service.MatrixService;
 import matrix.writer.WriteMatrixInfoInFile;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.concurrent.Semaphore;
@@ -12,13 +12,13 @@ public class ThreadsRunner extends Thread {
     private static final Logger LOGGER = LogManager.getLogger(ThreadsRunner.class.getName());
     private static int counter;
     private static Map<Integer, Integer> mapOfSums;
-    private static Set<Integer> threadsId;
+    private static Set<Integer> setOfThreadsId;
 
     static {
         counter = 0;
         mapOfSums = new HashMap<>();
-        threadsId = new HashSet<>();
-        threadsId.add(0);
+        setOfThreadsId = new HashSet<>();
+        setOfThreadsId.add(0);
     }
 
     private MatrixService matrix;
@@ -44,10 +44,10 @@ public class ThreadsRunner extends Thread {
             semaphore.acquire();
             LOGGER.debug("Start thread: " + id);
             int element = 0;
-            while (threadsId.contains(element)) {
+            while (setOfThreadsId.contains(element)) {
                 element = random.nextInt(matrix.getNumberOfThreads() + 1);
             }
-            threadsId.add(element);
+            setOfThreadsId.add(element);
             matrix.setElement(counter, counter, element);
             boolean isInitialized = false;
             int i = random.nextInt(matrixSize);
