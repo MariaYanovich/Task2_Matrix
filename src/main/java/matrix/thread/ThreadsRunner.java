@@ -1,9 +1,9 @@
-package task2.thread;
+package matrix.thread;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import task2.service.MatrixService;
-import task2.writer.WriteMatrixInfoInFile;
+import matrix.service.MatrixService;
+import matrix.writer.WriteMatrixInfoInFile;
 
 import java.util.*;
 import java.util.concurrent.Semaphore;

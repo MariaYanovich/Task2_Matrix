@@ -1,10 +1,10 @@
-package task2.service;
+package matrix.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import task2.entity.Matrix;
-import task2.exception.InitializerOfMatrixSizeAndThreadsNumberException;
-import task2.initializer.InitializerOfMatrixSizeAndThreadsNumber;
+import matrix.entity.Matrix;
+import matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
+import matrix.initializer.InitializerOfMatrixSizeAndThreadsNumber;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

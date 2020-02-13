@@ -1,8 +1,8 @@
-package task2.reader;
+package matrix.reader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import task2.exception.ReaderOfTwoStringsException;
+import matrix.exception.ReaderOfTwoStringsException;
 
 import java.io.File;
 import java.io.FileNotFoundException;

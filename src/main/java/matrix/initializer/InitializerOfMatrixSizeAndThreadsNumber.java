@@ -1,10 +1,10 @@
-package task2.initializer;
+package matrix.initializer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import task2.exception.InitializerOfMatrixSizeAndThreadsNumberException;
-import task2.exception.ParserOfTwoStringsToIntException;
-import task2.parser.ParserOfTwoStringsToInt;
+import matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
+import matrix.exception.ParserOfTwoStringsToIntException;
+import matrix.parser.ParserOfTwoStringsToInt;
 
 
 public class InitializerOfMatrixSizeAndThreadsNumber {

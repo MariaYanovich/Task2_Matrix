@@ -1,4 +1,4 @@
-package task2.entity;
+package matrix.entity;
 
 import java.util.Arrays;
 

@@ -1,7 +1,7 @@
-package task2;
+package matrix;
 
-import task2.service.MatrixService;
-import task2.thread.ThreadsRunner;
+import matrix.service.MatrixService;
+import matrix.thread.ThreadsRunner;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;

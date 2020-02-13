@@ -1,4 +1,4 @@
-package task2.exception;
+package matrix.exception;
 
 public class ReaderOfTwoStringsException extends Exception {
     public ReaderOfTwoStringsException() {
