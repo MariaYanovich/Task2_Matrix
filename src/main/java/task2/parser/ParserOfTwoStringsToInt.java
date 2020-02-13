@@ -1,9 +1,9 @@
 package task2.parser;
 
-import task2.exception.ParserOfTwoStringsToIntException;
-import task2.exception.ReaderOfTwoStringsException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import task2.exception.ParserOfTwoStringsToIntException;
+import task2.exception.ReaderOfTwoStringsException;
 import task2.reader.ReaderOfTwoStrings;
 
 public class ParserOfTwoStringsToInt {

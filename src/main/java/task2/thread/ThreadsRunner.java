@@ -5,25 +5,27 @@ import org.apache.logging.log4j.Logger;
 import task2.service.MatrixService;
 import task2.writer.WriteMatrixInfoInFile;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.Semaphore;
 
 public class ThreadsRunner extends Thread {
     private static final Logger LOGGER = LogManager.getLogger(ThreadsRunner.class.getName());
     private static int counter;
-    private static Map<Integer, Integer> map;
+    private static Map<Integer, Integer> mapOfSums;
+    private static Set<Integer> threadsId;
+
+    static {
+        counter = 0;
+        mapOfSums = new HashMap<>();
+        threadsId = new HashSet<>();
+        threadsId.add(0);
+    }
+
     private MatrixService matrix;
     private Semaphore semaphore;
     private int matrixSize;
     private int id;
     private Random random;
-
-    static {
-        counter = 0;
-        map = new HashMap<>();
-    }
 
     public ThreadsRunner() {
 
@@ -42,9 +44,10 @@ public class ThreadsRunner extends Thread {
             semaphore.acquire();
             LOGGER.debug("Start task2.thread: " + id);
             int element = 0;
-            while (matrix.isMatrixConsistsElementOnDiagonal(element) || element == 0) {
-                element = random.nextInt(matrix.getNumberOfThreads());
+            while (threadsId.contains(element)) {
+                element = random.nextInt(matrix.getNumberOfThreads() + 1);
             }
+            threadsId.add(element);
             matrix.setElement(counter, counter, element);
             boolean isInitialized = false;
             int i = random.nextInt(matrixSize);
@@ -59,7 +62,7 @@ public class ThreadsRunner extends Thread {
                 matrix.setElement(i, counter, element);
             }
             LOGGER.debug("Sum:" + matrix.getSum(counter));
-            map.put(id, matrix.getSum(counter));
+            mapOfSums.put(id, matrix.getSum(counter));
             counter++;
             semaphore.release();
             doAfterNThreads();
@@ -74,7 +77,7 @@ public class ThreadsRunner extends Thread {
     public void doAfterNThreads() {
         WriteMatrixInfoInFile writer = new WriteMatrixInfoInFile();
         if (counter == matrixSize) {
-            writer.writeInFile(matrix.getMatrix(), map);
+            writer.writeInFile(matrix.getMatrix(), mapOfSums);
             matrix.setMatrixOfInitializationBool(new boolean[matrixSize][matrixSize]);
             counter = 0;
         }

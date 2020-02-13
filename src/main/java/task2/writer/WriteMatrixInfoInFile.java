@@ -1,8 +1,8 @@
 package task2.writer;
 
-import task2.entity.Matrix;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import task2.entity.Matrix;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

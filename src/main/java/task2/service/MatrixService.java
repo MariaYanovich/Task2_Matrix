@@ -1,10 +1,10 @@
 package task2.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import task2.entity.Matrix;
 import task2.exception.InitializerOfMatrixSizeAndThreadsNumberException;
 import task2.initializer.InitializerOfMatrixSizeAndThreadsNumber;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -13,9 +13,9 @@ public class MatrixService {
 
     private static final Logger LOGGER = LogManager.getLogger(MatrixService.class.getName());
     private static final int DEFAULT_NUMBER_OF_THREADS = 0;
+    Lock lock;
     private Matrix matrix;
     private int numberOfThreads;
-    Lock lock;
     private boolean[][] matrixOfInitializationBool;
 
     private MatrixService() {
@@ -23,6 +23,7 @@ public class MatrixService {
         numberOfThreads = DEFAULT_NUMBER_OF_THREADS;
         lock = new ReentrantLock();
     }
+
 
     private static class MatrixServiceHolder {
         private static final MatrixService INSTANCE = new MatrixService();
@@ -58,7 +59,6 @@ public class MatrixService {
         return matrixOfInitializationBool[n][m];
     }
 
-
     public Matrix getMatrix() {
         return matrix;
     }
@@ -67,18 +67,8 @@ public class MatrixService {
         return numberOfThreads;
     }
 
-
     public void setMatrixOfInitializationBool(boolean[][] matrixOfInitializationBool) {
         this.matrixOfInitializationBool = matrixOfInitializationBool;
-    }
-
-    public boolean isMatrixConsistsElementOnDiagonal(int element) {
-        for (int i = 0; i < matrix.getSize(); i++) {
-            if (matrix.getMatrix()[i][i] == element) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public int getSum(int n) {
@@ -91,4 +81,5 @@ public class MatrixService {
         }
         return sum;
     }
+
 }

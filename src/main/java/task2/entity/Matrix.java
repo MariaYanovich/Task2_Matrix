@@ -15,12 +15,12 @@ public class Matrix {
         this.matrix = new int[size][size];
     }
 
-    public void setSize(int size) {
-        this.matrix = new int[size][size];
-    }
-
     public int getSize() {
         return matrix.length;
+    }
+
+    public void setSize(int size) {
+        this.matrix = new int[size][size];
     }
 
     public int[][] getMatrix() {
