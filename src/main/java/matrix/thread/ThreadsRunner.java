@@ -49,18 +49,7 @@ public class ThreadsRunner extends Thread {
             }
             setOfThreadsId.add(element);
             matrix.setElement(counter, counter, element);
-            boolean isInitialized = false;
-            int i = generateRandom(matrixSize);
-            if (!matrix.getElementOfMatrixOfInitializationBool(counter, i) && i != counter) {
-                matrix.setElement(counter, i, element);
-                isInitialized = true;
-            }
-            if (!isInitialized) {
-                while (matrix.getElementOfMatrixOfInitializationBool(i, counter) || i == counter) {
-                    i = generateRandom(matrixSize);
-                }
-                matrix.setElement(i, counter, element);
-            }
+            initializeMatrix(element);
             LOGGER.debug("Sum:" + matrix.getSum(counter));
             mapOfSums.put(id, matrix.getSum(counter));
             counter++;
@@ -71,6 +60,21 @@ public class ThreadsRunner extends Thread {
 
         } catch (InterruptedException e) {
             System.out.println(counter + "error");
+        }
+    }
+
+    public void initializeMatrix(int element) {
+        boolean isInitialized = false;
+        int i = generateRandom(matrixSize);
+        if (!matrix.getElementOfMatrixOfInitializationBool(counter, i) && i != counter) {
+            matrix.setElement(counter, i, element);
+            isInitialized = true;
+        }
+        if (!isInitialized) {
+            while (matrix.getElementOfMatrixOfInitializationBool(i, counter) || i == counter) {
+                i = generateRandom(matrixSize);
+            }
+            matrix.setElement(i, counter, element);
         }
     }
 
@@ -86,6 +90,5 @@ public class ThreadsRunner extends Thread {
     private int generateRandom(int bound) {
         return random.nextInt(bound);
     }
-
 }
 
