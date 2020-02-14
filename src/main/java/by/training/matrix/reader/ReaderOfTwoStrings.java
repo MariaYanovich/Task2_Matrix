@@ -19,7 +19,8 @@ public class ReaderOfTwoStrings {
     public ReaderOfTwoStrings() throws ReaderOfTwoStringsException {
         ClassLoader classLoader = this.getClass().getClassLoader();
         try {
-            file = new File(Objects.requireNonNull(classLoader.getResource("TwoInts.txt")).getFile());
+            this.file = new File(Objects.requireNonNull(classLoader.
+                    getResource("FileWithTwoInts.txt")).getFile());
             readValues();
         } catch (NullPointerException e) {
             LOGGER.error("Error in reading from txt file");
@@ -29,9 +30,9 @@ public class ReaderOfTwoStrings {
 
     private void readValues() throws ReaderOfTwoStringsException {
         try {
-            Scanner sc = new Scanner(file);
-            firstStr = sc.nextLine();
-            secondStr = sc.nextLine();
+            Scanner sc = new Scanner(this.file);
+            this.firstStr = sc.nextLine();
+            this.secondStr = sc.nextLine();
         } catch (FileNotFoundException e) {
             LOGGER.error("Can't find txt file");
             throw new ReaderOfTwoStringsException(e);
@@ -39,10 +40,10 @@ public class ReaderOfTwoStrings {
     }
 
     public String getFirstStr() {
-        return firstStr;
+        return this.firstStr;
     }
 
     public String getSecondStr() {
-        return secondStr;
+        return this.secondStr;
     }
 }

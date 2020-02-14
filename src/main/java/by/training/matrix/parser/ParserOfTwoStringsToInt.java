@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ParserOfTwoStringsToInt {
+
     private static final Logger LOGGER = LogManager.getLogger(ParserOfTwoStringsToInt.class.getName());
 
     private ReaderOfTwoStrings reader;
@@ -15,18 +16,17 @@ public class ParserOfTwoStringsToInt {
 
     public ParserOfTwoStringsToInt() throws ParserOfTwoStringsToIntException {
         try {
-            reader = new ReaderOfTwoStrings();
-            parseStrParametersToInt();
+            this.reader = new ReaderOfTwoStrings();
+            parseStrValuesToInt();
         } catch (ReaderOfTwoStringsException e) {
             LOGGER.debug("Catch " + e);
         }
-
     }
 
-    private void parseStrParametersToInt() throws ParserOfTwoStringsToIntException {
+    private void parseStrValuesToInt() throws ParserOfTwoStringsToIntException {
         try {
-            firstInt = Integer.parseInt(reader.getFirstStr());
-            secondInt = Integer.parseInt(reader.getSecondStr());
+            this.firstInt = Integer.parseInt(this.reader.getFirstStr());
+            this.secondInt = Integer.parseInt(this.reader.getSecondStr());
         } catch (NumberFormatException e) {
             LOGGER.error("Error in parsing string to int");
             throw new ParserOfTwoStringsToIntException();
@@ -35,10 +35,10 @@ public class ParserOfTwoStringsToInt {
     }
 
     public int getFirstInt() {
-        return firstInt;
+        return this.firstInt;
     }
 
     public int getSecondInt() {
-        return secondInt;
+        return this.secondInt;
     }
 }

@@ -31,40 +31,8 @@ public class WorkerWithThread {
         this.setOfThreadsId.add(0);
     }
 
-    private static class WorkerWithThreadHolder {
-        private static final WorkerWithThread INSTANCE = new WorkerWithThread();
-    }
-
     public static WorkerWithThread getInstance() {
         return WorkerWithThreadHolder.INSTANCE;
-    }
-
-    private void initializeMatrix(int element) {
-        boolean isInitialized = false;
-        int i = generateRandom(matrix.getSize());
-        if (!matrix.getElementOfMatrixOfInitializationBool(counter, i) && i != counter) {
-            matrix.setElement(counter, i, element);
-            isInitialized = true;
-        }
-        if (!isInitialized) {
-            while (matrix.getElementOfMatrixOfInitializationBool(i, counter) || i == counter) {
-                i = generateRandom(matrix.getSize());
-            }
-            matrix.setElement(i, counter, element);
-        }
-    }
-
-    private void doAfterNThreads() {
-        WriteMatrixInfoInFile writer = new WriteMatrixInfoInFile();
-        if (counter == matrix.getSize()) {
-            writer.writeInFile(matrix);
-            matrix.setMatrixOfInitializationBool(new boolean[matrix.getSize()][matrix.getSize()]);
-            counter = 0;
-        }
-    }
-
-    private int generateRandom(int bound) {
-        return random.nextInt(bound);
     }
 
     public String writeIntoMatrix(final int id) {
@@ -73,18 +41,58 @@ public class WorkerWithThread {
         LOGGER.debug("Start writing to thread: " + id);
         int element = 0;
         while (setOfThreadsId.contains(element)) {
-            element = generateRandom(matrix.getNumberOfThreads() * matrix.getSize() + 1);
+            element = generateRandom(matrix.getNumberOfIterations()
+                    * matrix.getSize() + 1);
         }
         setOfThreadsId.add(element);
-        matrix.setElement(counter, counter, element);
+        setElementInBooleanAndIntMatrices(counter, counter, element);
         initializeMatrix(element);
-        LOGGER.debug("Sum:" + matrix.getSum(counter));
+        LOGGER.debug("Sum: " + matrix.getSum(counter));
         writer.writeInFile(id, matrix.getSum(counter));
         counter++;
-        doAfterNThreads();
+        doAfterEachIterationOfCycle();
         LOGGER.debug(matrix.toString());
         LOGGER.debug("End writing to thread: " + id);
         locker.unlock();
         return matrix.toString();
     }
+
+    private void initializeMatrix(int element) {
+        boolean isInitialized = false;
+        int i = generateRandom(matrix.getSize());
+        if (!matrix.getElementOfMatrixOfInitializationBool(counter, i) && i != counter) {
+            setElementInBooleanAndIntMatrices(counter, i, element);
+            isInitialized = true;
+        }
+        if (!isInitialized) {
+            while (matrix.getElementOfMatrixOfInitializationBool(i, counter) || i == counter) {
+                i = generateRandom(matrix.getSize());
+            }
+            setElementInBooleanAndIntMatrices(i, counter, element);
+        }
+    }
+
+    private void doAfterEachIterationOfCycle() {
+        WriteMatrixInfoInFile writer = new WriteMatrixInfoInFile();
+        if (counter == matrix.getSize()) {
+            writer.writeInFile(matrix);
+            matrix.setBooleanMatrixOfInitialization(
+                    new boolean[matrix.getSize()][matrix.getSize()]);
+            counter = 0;
+        }
+    }
+
+    private int generateRandom(int bound) {
+        return random.nextInt(bound);
+    }
+
+    private void setElementInBooleanAndIntMatrices(int i, int j, int value) {
+        matrix.setElementInIntMatrix(i, j, value);
+        matrix.setElementInBooleanMatrix(i, j);
+    }
+
+    private static class WorkerWithThreadHolder {
+        private static final WorkerWithThread INSTANCE = new WorkerWithThread();
+    }
+
 }

@@ -1,4 +1,4 @@
-package by.training.matrix;
+package by.training.matrix.runner;
 
 import by.training.matrix.entity.Matrix;
 import by.training.matrix.thread.RunnerOfThread;
@@ -9,19 +9,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Main {
-
     public static void main(String[] args) throws InterruptedException {
         Matrix matrix = Matrix.getInstance();
-        ExecutorService ex = Executors.newFixedThreadPool(matrix.getSize());
-        List<RunnerOfThread> threads;
-        for (int i = 0; i < matrix.getNumberOfThreads(); i++) {
-            threads = new LinkedList<>();
+        ExecutorService executor = Executors.newFixedThreadPool(matrix.getSize());
+        List<RunnerOfThread> threadsList;
+        for (int i = 0; i < matrix.getNumberOfIterations(); i++) {
+            threadsList = new LinkedList<>();
             for (int j = 0; j < matrix.getSize(); j++) {
-                threads.add(new RunnerOfThread(i * matrix.getSize() + j));
+                threadsList.add(new RunnerOfThread(i * matrix.getSize() + j));
             }
-            ex.invokeAll(threads);
+            executor.invokeAll(threadsList);
         }
-        ex.shutdown();
+        executor.shutdown();
     }
 }
 

@@ -1,61 +1,61 @@
-Thread 1, sum 20
-Thread 2, sum 30
-Thread 4, sum 36
-Thread 3, sum 28
-Thread 5, sum 65
+Thread 1, sum 18
+Thread 3, sum 63
+Thread 4, sum 16
+Thread 2, sum 41
+Thread 5, sum 4
 Matrix(size=5):
-10 0 0 0 10 
-0 15 0 0 15 
-18 0 18 0 0 
-0 0 0 14 14 
-13 0 0 0 13 Thread 6, sum 55
-Thread 7, sum 19
-Thread 8, sum 64
-Thread 10, sum 33
-Thread 9, sum 96
+9 9 0 0 0 
+0 27 0 27 2 
+0 0 8 0 0 
+3 0 8 3 0 
+0 0 0 0 2 Thread 7, sum 14
+Thread 6, sum 96
+Thread 8, sum 18
+Thread 9, sum 64
+Thread 10, sum 65
 Matrix(size=5):
-7 2 0 7 10 
-0 2 23 0 15 
-18 0 23 0 0 
-0 0 6 6 14 
-13 0 0 22 22 Thread 11, sum 78
-Thread 12, sum 42
-Thread 13, sum 47
-Thread 14, sum 105
-Thread 15, sum 109
+1 9 0 0 1 
+0 29 0 27 11 
+5 0 5 0 0 
+3 0 8 13 13 
+0 29 0 0 11 Thread 12, sum 49
+Thread 11, sum 77
+Thread 13, sum 82
+Thread 14, sum 77
+Thread 15, sum 37
 Matrix(size=5):
-19 2 0 7 19 
-1 1 23 0 15 
-9 0 9 0 0 
-0 28 6 28 14 
-13 0 0 24 24 Thread 16, sum 103
-Thread 17, sum 102
-Thread 18, sum 64
-Thread 19, sum 85
-Thread 20, sum 132
+18 9 0 0 1 
+0 14 0 14 11 
+18 0 28 28 0 
+7 0 8 7 13 
+0 6 0 0 6 Thread 16, sum 95
+Thread 18, sum 78
+Thread 17, sum 109
+Thread 19, sum 111
+Thread 20, sum 55
 Matrix(size=5):
-27 27 11 7 19 
-1 4 23 3 15 
-9 4 11 0 0 
-0 28 6 3 14 
-30 0 0 24 30 Thread 21, sum 103
-Thread 22, sum 140
-Thread 24, sum 79
-Thread 25, sum 98
-Thread 23, sum 176
+30 9 30 0 1 
+0 19 19 14 11 
+12 0 12 28 0 
+24 0 8 24 13 
+0 15 0 0 15 Thread 21, sum 98
+Thread 22, sum 100
+Thread 23, sum 149
+Thread 24, sum 95
+Thread 25, sum 95
 Matrix(size=5):
-5 27 5 7 19 
-20 20 23 3 15 
-9 4 16 8 29 
-0 28 6 8 14 
-30 0 16 24 29 Thread 26, sum 136
-Thread 27, sum 151
-Thread 28, sum 153
-Thread 29, sum 128
-Thread 30, sum 165
+26 9 26 4 1 
+0 16 19 14 23 
+12 16 20 28 0 
+24 0 8 4 13 
+0 15 20 0 23 Thread 26, sum 98
+Thread 27, sum 127
+Thread 28, sum 166
+Thread 29, sum 135
+Thread 30, sum 94
 Matrix(size=5):
-12 27 12 7 19 
-20 17 23 17 15 
-9 25 25 8 29 
-0 26 6 26 14 
-30 0 16 21 21 
+17 9 26 4 1 
+0 25 25 14 23 
+17 21 21 28 0 
+24 0 8 22 13 
+0 15 10 22 10 

@@ -15,7 +15,7 @@ public class InitializerOfMatrixSizeAndThreadsNumber {
 
     public InitializerOfMatrixSizeAndThreadsNumber() {
         try {
-            parser = new ParserOfTwoStringsToInt();
+            this.parser = new ParserOfTwoStringsToInt();
         } catch (ParserOfTwoStringsToIntException e) {
             LOGGER.debug("Catch " + e);
         }
@@ -24,7 +24,7 @@ public class InitializerOfMatrixSizeAndThreadsNumber {
     public int initializeMatrixSize() throws InitializerOfMatrixSizeAndThreadsNumberException {
         int sizeToReturn;
         try {
-            sizeToReturn = parser.getFirstInt();
+            sizeToReturn = this.parser.getFirstInt();
         } catch (NullPointerException e) {
             throw new InitializerOfMatrixSizeAndThreadsNumberException();
         }
@@ -32,13 +32,13 @@ public class InitializerOfMatrixSizeAndThreadsNumber {
     }
 
 
-    public int initializeNumberOfThreads() throws InitializerOfMatrixSizeAndThreadsNumberException {
-        int numberOfThreadsToReturn;
+    public int initializeNumberOfIterations() throws InitializerOfMatrixSizeAndThreadsNumberException {
+        int numberOfIterationsToReturn;
         try {
-            numberOfThreadsToReturn = parser.getSecondInt();
+            numberOfIterationsToReturn = this.parser.getSecondInt();
         } catch (NullPointerException e) {
             throw new InitializerOfMatrixSizeAndThreadsNumberException();
         }
-        return numberOfThreadsToReturn;
+        return numberOfIterationsToReturn;
     }
 }

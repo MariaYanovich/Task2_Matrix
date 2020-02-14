@@ -9,31 +9,35 @@ import java.util.Arrays;
 
 public class Matrix {
 
-    private static final int DEFAULT_SIZE = 0;
     private static final Logger LOGGER = LogManager.getLogger(Matrix.class.getName());
+    private static final int DEFAULT_SIZE = 0;
     private static final int DEFAULT_NUMBER_OF_THREADS = 0;
-    private int[][] matrix;
-    private int numberOfThreads;
-    private boolean[][] matrixOfInitializationBool;
+    private int[][] intMatrix;
+    private boolean[][] booleanMatrixOfInitialization;
+    private int numberOfIterations;
+    private int size;
 
     private Matrix() {
-        this.matrix = new int[DEFAULT_SIZE][DEFAULT_SIZE];
-        numberOfThreads = DEFAULT_NUMBER_OF_THREADS;
+        this.size = DEFAULT_SIZE;
+        this.intMatrix = new int[size][size];
+        this.booleanMatrixOfInitialization = new boolean[size][size];
+        this.numberOfIterations = DEFAULT_NUMBER_OF_THREADS;
     }
 
     public Matrix(int size) {
-        this.matrix = new int[size][size];
+        this.intMatrix = new int[size][size];
     }
 
     public static Matrix getInstance() {
         Matrix instance = MatrixHolder.INSTANCE;
         try {
             InitializerOfMatrixSizeAndThreadsNumber initializer = new InitializerOfMatrixSizeAndThreadsNumber();
-            if (initializer.initializeMatrixSize() <= initializer.initializeNumberOfThreads()) {
+            if (initializer.initializeMatrixSize() <= initializer.initializeNumberOfIterations()) {
                 int size = initializer.initializeMatrixSize();
                 instance.setSize(size);
-                instance.numberOfThreads = initializer.initializeNumberOfThreads();
-                instance.matrixOfInitializationBool = new boolean[size][size];
+                instance.setSizeToIntMatrix(size);
+                instance.setSizeToBooleanMatrix(size);
+                instance.setNumberOfIterations(initializer.initializeNumberOfIterations());
             }
         } catch (InitializerOfMatrixSizeAndThreadsNumberException e) {
             LOGGER.error("Catch " + e);
@@ -41,49 +45,63 @@ public class Matrix {
         return instance;
     }
 
+
     public int getSize() {
-        return matrix.length;
+        return size;
     }
 
     public void setSize(int size) {
-        this.matrix = new int[size][size];
+        this.size = size;
     }
 
-    public int[][] getMatrix() {
-        return matrix;
+
+    public void setSizeToIntMatrix(int size) {
+        this.intMatrix = new int[size][size];
     }
 
-    public void setMatrix(int[][] matrix) {
-        this.matrix = matrix;
+    public void setSizeToBooleanMatrix(int size) {
+        this.booleanMatrixOfInitialization = new boolean[size][size];
     }
 
-    public void setElement(int n, int m, int value) {
-        matrix[n][m] = value;
-        matrixOfInitializationBool[n][m] = true;
+
+    public void setElementInIntMatrix(int n, int m, int value) {
+        intMatrix[n][m] = value;
     }
 
-    public int getElement(int n, int m) {
-        return matrix[n][m];
+    public void setElementInBooleanMatrix(int n, int m) {
+        booleanMatrixOfInitialization[n][m] = true;
+    }
+
+    public int getElementOfIntMatrix(int n, int m) {
+        return intMatrix[n][m];
     }
 
     public boolean getElementOfMatrixOfInitializationBool(int n, int m) {
-        return matrixOfInitializationBool[n][m];
+        return booleanMatrixOfInitialization[n][m];
     }
 
-    public int getNumberOfThreads() {
-        return numberOfThreads;
+    public int[][] getIntMatrix() {
+        return this.intMatrix;
     }
 
-    public void setMatrixOfInitializationBool(boolean[][] matrixOfInitializationBool) {
-        this.matrixOfInitializationBool = matrixOfInitializationBool;
+    public void setBooleanMatrixOfInitialization(boolean[][] booleanMatrixOfInitialization) {
+        this.booleanMatrixOfInitialization = booleanMatrixOfInitialization;
+    }
+
+    public int getNumberOfIterations() {
+        return numberOfIterations;
+    }
+
+    public void setNumberOfIterations(int numberOfThreads) {
+        this.numberOfIterations = numberOfThreads;
     }
 
     public int getSum(int n) {
         int sum = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            sum += getElement(n, i);
-            if (getElement(n, i) != getElement(i, n)) {
-                sum += getElement(i, n);
+        for (int i = 0; i < intMatrix.length; i++) {
+            sum += getElementOfIntMatrix(n, i);
+            if (getElementOfIntMatrix(n, i) != getElementOfIntMatrix(i, n)) {
+                sum += getElementOfIntMatrix(i, n);
             }
         }
         return sum;
@@ -94,24 +112,24 @@ public class Matrix {
         if (this == o) return true;
         if (!(o instanceof Matrix)) return false;
         Matrix matrix1 = (Matrix) o;
-        return Arrays.equals(getMatrix(), matrix1.getMatrix());
+        return Arrays.equals(getIntMatrix(), matrix1.getIntMatrix());
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(getMatrix());
+        return Arrays.hashCode(getIntMatrix());
     }
 
     @Override
     public String toString() {
         String strMatrix = "";
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                strMatrix = strMatrix.concat(String.valueOf(matrix[i][j])).concat(" ");
+        for (int[] matrix : intMatrix) {
+            for (int j = 0; j < intMatrix.length; j++) {
+                strMatrix = strMatrix.concat(String.valueOf(matrix[j])).concat(" ");
             }
             strMatrix = strMatrix.concat("\n");
         }
-        return "Matrix(size=" + matrix.length + "):\n"
+        return "Matrix(size=" + intMatrix.length + "):\n"
                 + strMatrix.substring(0, strMatrix.length() - 1);
     }
 
