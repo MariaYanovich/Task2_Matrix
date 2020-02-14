@@ -1,10 +1,10 @@
 package matrix.parser;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import matrix.exception.ParserOfTwoStringsToIntException;
 import matrix.exception.ReaderOfTwoStringsException;
 import matrix.reader.ReaderOfTwoStrings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ParserOfTwoStringsToInt {
     private static final Logger LOGGER = LogManager.getLogger(ParserOfTwoStringsToInt.class.getName());

@@ -1,18 +1,44 @@
 package matrix.entity;
 
+import matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
+import matrix.initializer.InitializerOfMatrixSizeAndThreadsNumber;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 
 public class Matrix {
 
     private static final int DEFAULT_SIZE = 0;
+    private static final Logger LOGGER = LogManager.getLogger(Matrix.class.getName());
+    private static final int DEFAULT_NUMBER_OF_THREADS = 0;
     private int[][] matrix;
+    private int numberOfThreads;
+    private boolean[][] matrixOfInitializationBool;
 
-    public Matrix() {
+    private Matrix() {
         this.matrix = new int[DEFAULT_SIZE][DEFAULT_SIZE];
+        numberOfThreads = DEFAULT_NUMBER_OF_THREADS;
     }
 
     public Matrix(int size) {
         this.matrix = new int[size][size];
+    }
+
+    public static Matrix getInstance() {
+        Matrix instance = MatrixHolder.INSTANCE;
+        try {
+            InitializerOfMatrixSizeAndThreadsNumber initializer = new InitializerOfMatrixSizeAndThreadsNumber();
+            if (initializer.initializeMatrixSize() <= initializer.initializeNumberOfThreads()) {
+                int size = initializer.initializeMatrixSize();
+                instance.setSize(size);
+                instance.numberOfThreads = initializer.initializeNumberOfThreads();
+                instance.matrixOfInitializationBool = new boolean[size][size];
+            }
+        } catch (InitializerOfMatrixSizeAndThreadsNumberException e) {
+            LOGGER.error("Catch " + e);
+        }
+        return instance;
     }
 
     public int getSize() {
@@ -31,8 +57,36 @@ public class Matrix {
         this.matrix = matrix;
     }
 
-    public void setElMatrix(int n, int m, int value) {
+    public void setElement(int n, int m, int value) {
         matrix[n][m] = value;
+        matrixOfInitializationBool[n][m] = true;
+    }
+
+    public int getElement(int n, int m) {
+        return matrix[n][m];
+    }
+
+    public boolean getElementOfMatrixOfInitializationBool(int n, int m) {
+        return matrixOfInitializationBool[n][m];
+    }
+
+    public int getNumberOfThreads() {
+        return numberOfThreads;
+    }
+
+    public void setMatrixOfInitializationBool(boolean[][] matrixOfInitializationBool) {
+        this.matrixOfInitializationBool = matrixOfInitializationBool;
+    }
+
+    public int getSum(int n) {
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            sum += getElement(n, i);
+            if (getElement(n, i) != getElement(i, n)) {
+                sum += getElement(i, n);
+            }
+        }
+        return sum;
     }
 
     @Override
@@ -57,6 +111,11 @@ public class Matrix {
             }
             strMatrix = strMatrix.concat("\n");
         }
-        return "Matrix(size=" + matrix.length + "):\n" + strMatrix;
+        return "Matrix(size=" + matrix.length + "):\n"
+                + strMatrix.substring(0, strMatrix.length() - 1);
+    }
+
+    private static class MatrixHolder {
+        private static final Matrix INSTANCE = new Matrix();
     }
 }

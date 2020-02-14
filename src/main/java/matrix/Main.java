@@ -1,22 +1,27 @@
 package matrix;
 
-import matrix.service.MatrixService;
-import matrix.thread.ThreadsRunner;
+import matrix.entity.Matrix;
+import matrix.thread.RunnerOfThread;
 
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-
-        MatrixService matrixService = MatrixService.getInstance();
-        Semaphore semaphore = new Semaphore(MatrixService.getInstance().getMatrix().getSize());
-
-        for (int i = 1; i <= matrixService.getNumberOfThreads(); i++) {
-            new ThreadsRunner(semaphore, matrixService, i).start();
-            TimeUnit.MILLISECONDS.sleep(100);
+        Matrix matrix = Matrix.getInstance();
+        ExecutorService ex = Executors.newFixedThreadPool(matrix.getSize());
+        List<RunnerOfThread> threads;
+        for (int i = 0; i < matrix.getNumberOfThreads(); i++) {
+            threads = new LinkedList<>();
+            for (int j = 0; j < matrix.getSize(); j++) {
+                threads.add(new RunnerOfThread(i * matrix.getSize() + j));
+            }
+            ex.invokeAll(threads);
         }
+        ex.shutdown();
     }
 }
 
