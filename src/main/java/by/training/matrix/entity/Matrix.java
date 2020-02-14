@@ -1,7 +1,7 @@
-package matrix.entity;
+package by.training.matrix.entity;
 
-import matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
-import matrix.initializer.InitializerOfMatrixSizeAndThreadsNumber;
+import by.training.matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
+import by.training.matrix.initializer.InitializerOfMatrixSizeAndThreadsNumber;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

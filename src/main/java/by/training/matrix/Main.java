@@ -1,7 +1,7 @@
-package matrix;
+package by.training.matrix;
 
-import matrix.entity.Matrix;
-import matrix.thread.RunnerOfThread;
+import by.training.matrix.entity.Matrix;
+import by.training.matrix.thread.RunnerOfThread;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package matrix.writer;
+package by.training.matrix.writer;
 
-import matrix.entity.Matrix;
+import by.training.matrix.entity.Matrix;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

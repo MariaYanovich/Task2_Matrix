@@ -1,8 +1,8 @@
-package matrix.parser;
+package by.training.matrix.parser;
 
-import matrix.exception.ParserOfTwoStringsToIntException;
-import matrix.exception.ReaderOfTwoStringsException;
-import matrix.reader.ReaderOfTwoStrings;
+import by.training.matrix.exception.ParserOfTwoStringsToIntException;
+import by.training.matrix.exception.ReaderOfTwoStringsException;
+import by.training.matrix.reader.ReaderOfTwoStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

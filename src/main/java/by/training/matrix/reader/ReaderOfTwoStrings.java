@@ -1,6 +1,6 @@
-package matrix.reader;
+package by.training.matrix.reader;
 
-import matrix.exception.ReaderOfTwoStringsException;
+import by.training.matrix.exception.ReaderOfTwoStringsException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

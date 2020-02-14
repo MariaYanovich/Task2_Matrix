@@ -1,4 +1,4 @@
-package matrix.exception;
+package by.training.matrix.exception;
 
 public class InitializerOfMatrixSizeAndThreadsNumberException extends Exception {
     public InitializerOfMatrixSizeAndThreadsNumberException() {

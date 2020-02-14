@@ -1,8 +1,8 @@
-package matrix.initializer;
+package by.training.matrix.initializer;
 
-import matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
-import matrix.exception.ParserOfTwoStringsToIntException;
-import matrix.parser.ParserOfTwoStringsToInt;
+import by.training.matrix.exception.InitializerOfMatrixSizeAndThreadsNumberException;
+import by.training.matrix.exception.ParserOfTwoStringsToIntException;
+import by.training.matrix.parser.ParserOfTwoStringsToInt;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
