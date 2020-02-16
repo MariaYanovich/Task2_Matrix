@@ -328,3 +328,113 @@
 9 4 23 0 23 
 [DEBUG] 2020-02-15 01:28:07.632 [pool-2-thread-4] WorkerWithThread - End writing to thread: 30
 [DEBUG] 2020-02-15 01:28:07.632 [pool-2-thread-4] RunnerOfThread - End thread: 30
+[DEBUG] 2020-02-16 14:00:51.872 [pool-2-thread-5] RunnerOfThread - Start thread: 5
+[DEBUG] 2020-02-16 14:00:51.872 [pool-2-thread-3] RunnerOfThread - Start thread: 3
+[DEBUG] 2020-02-16 14:00:51.872 [pool-2-thread-4] RunnerOfThread - Start thread: 4
+[DEBUG] 2020-02-16 14:00:51.872 [pool-2-thread-1] RunnerOfThread - Start thread: 1
+[DEBUG] 2020-02-16 14:00:51.872 [pool-2-thread-2] RunnerOfThread - Start thread: 2
+[DEBUG] 2020-02-16 14:00:51.887 [pool-2-thread-5] WorkerWithThread - Start writing to thread: 5
+[DEBUG] 2020-02-16 14:00:51.887 [pool-2-thread-5] WorkerWithThread - Sum: 4
+[DEBUG] 2020-02-16 14:00:51.896 [pool-2-thread-5] WorkerWithThread - Matrix(size=5):
+2 0 0 2 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:00:51.896 [pool-2-thread-5] WorkerWithThread - End writing to thread: 5
+[DEBUG] 2020-02-16 14:00:51.897 [pool-2-thread-5] RunnerOfThread - End thread: 5
+[DEBUG] 2020-02-16 14:00:51.897 [pool-2-thread-2] WorkerWithThread - Start writing to thread: 2
+[DEBUG] 2020-02-16 14:00:51.897 [pool-2-thread-2] WorkerWithThread - Sum: 2
+[DEBUG] 2020-02-16 14:00:51.905 [pool-2-thread-2] WorkerWithThread - Matrix(size=5):
+2 0 0 2 0 
+1 1 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:00:51.905 [pool-2-thread-2] WorkerWithThread - End writing to thread: 2
+[DEBUG] 2020-02-16 14:00:51.905 [pool-2-thread-2] RunnerOfThread - End thread: 2
+[DEBUG] 2020-02-16 14:00:51.905 [pool-2-thread-1] WorkerWithThread - Start writing to thread: 1
+[DEBUG] 2020-02-16 14:00:51.906 [pool-2-thread-1] WorkerWithThread - Sum: 10
+[DEBUG] 2020-02-16 14:00:51.913 [pool-2-thread-1] WorkerWithThread - Matrix(size=5):
+2 0 0 2 0 
+1 1 0 0 0 
+0 0 5 0 5 
+0 0 0 0 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:00:51.913 [pool-2-thread-1] WorkerWithThread - End writing to thread: 1
+[DEBUG] 2020-02-16 14:00:51.913 [pool-2-thread-1] RunnerOfThread - End thread: 1
+[DEBUG] 2020-02-16 14:00:51.913 [pool-2-thread-3] WorkerWithThread - Start writing to thread: 3
+[DEBUG] 2020-02-16 14:00:51.913 [pool-2-thread-3] WorkerWithThread - Sum: 8
+[DEBUG] 2020-02-16 14:00:51.921 [pool-2-thread-3] WorkerWithThread - Matrix(size=5):
+2 0 0 2 0 
+1 1 0 0 0 
+0 0 5 0 5 
+0 3 0 3 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:00:51.921 [pool-2-thread-3] WorkerWithThread - End writing to thread: 3
+[DEBUG] 2020-02-16 14:00:51.921 [pool-2-thread-3] RunnerOfThread - End thread: 3
+[DEBUG] 2020-02-16 14:00:51.922 [pool-2-thread-4] WorkerWithThread - Start writing to thread: 4
+[DEBUG] 2020-02-16 14:00:51.923 [pool-2-thread-4] WorkerWithThread - Sum: 13
+[DEBUG] 2020-02-16 14:00:51.935 [pool-2-thread-4] WorkerWithThread - Matrix(size=5):
+2 0 0 2 4 
+1 1 0 0 0 
+0 0 5 0 5 
+0 3 0 3 0 
+0 0 0 0 4 
+[DEBUG] 2020-02-16 14:00:51.936 [pool-2-thread-4] WorkerWithThread - End writing to thread: 4
+[DEBUG] 2020-02-16 14:00:51.936 [pool-2-thread-4] RunnerOfThread - End thread: 4
+[DEBUG] 2020-02-16 14:01:12.207 [pool-2-thread-1] RunnerOfThread - Start thread: 1
+[DEBUG] 2020-02-16 14:01:12.207 [pool-2-thread-4] RunnerOfThread - Start thread: 4
+[DEBUG] 2020-02-16 14:01:12.207 [pool-2-thread-2] RunnerOfThread - Start thread: 2
+[DEBUG] 2020-02-16 14:01:12.207 [pool-2-thread-3] RunnerOfThread - Start thread: 3
+[DEBUG] 2020-02-16 14:01:12.207 [pool-2-thread-5] RunnerOfThread - Start thread: 5
+[DEBUG] 2020-02-16 14:01:12.211 [pool-2-thread-1] WorkerWithThread - Start writing to thread: 1
+[DEBUG] 2020-02-16 14:01:12.211 [pool-2-thread-1] WorkerWithThread - Sum: 10
+[DEBUG] 2020-02-16 14:01:12.221 [pool-2-thread-1] WorkerWithThread - Matrix(size=5):
+5 0 5 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:01:12.221 [pool-2-thread-1] WorkerWithThread - End writing to thread: 1
+[DEBUG] 2020-02-16 14:01:12.222 [pool-2-thread-1] RunnerOfThread - End thread: 1
+[DEBUG] 2020-02-16 14:01:12.222 [pool-2-thread-5] WorkerWithThread - Start writing to thread: 5
+[DEBUG] 2020-02-16 14:01:12.222 [pool-2-thread-5] WorkerWithThread - Sum: 2
+[DEBUG] 2020-02-16 14:01:12.229 [pool-2-thread-5] WorkerWithThread - Matrix(size=5):
+5 0 5 0 0 
+0 1 0 0 0 
+0 0 0 0 0 
+0 1 0 0 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:01:12.229 [pool-2-thread-5] WorkerWithThread - End writing to thread: 5
+[DEBUG] 2020-02-16 14:01:12.229 [pool-2-thread-5] RunnerOfThread - End thread: 5
+[DEBUG] 2020-02-16 14:01:12.229 [pool-2-thread-4] WorkerWithThread - Start writing to thread: 4
+[DEBUG] 2020-02-16 14:01:12.229 [pool-2-thread-4] WorkerWithThread - Sum: 9
+[DEBUG] 2020-02-16 14:01:12.237 [pool-2-thread-4] WorkerWithThread - Matrix(size=5):
+5 0 5 0 0 
+0 1 0 0 0 
+0 2 2 0 0 
+0 1 0 0 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:01:12.237 [pool-2-thread-4] WorkerWithThread - End writing to thread: 4
+[DEBUG] 2020-02-16 14:01:12.237 [pool-2-thread-4] RunnerOfThread - End thread: 4
+[DEBUG] 2020-02-16 14:01:12.238 [pool-2-thread-3] WorkerWithThread - Start writing to thread: 3
+[DEBUG] 2020-02-16 14:01:12.238 [pool-2-thread-3] WorkerWithThread - Sum: 7
+[DEBUG] 2020-02-16 14:01:12.248 [pool-2-thread-3] WorkerWithThread - Matrix(size=5):
+5 0 5 0 0 
+0 1 0 3 0 
+0 2 2 0 0 
+0 1 0 3 0 
+0 0 0 0 0 
+[DEBUG] 2020-02-16 14:01:12.248 [pool-2-thread-3] WorkerWithThread - End writing to thread: 3
+[DEBUG] 2020-02-16 14:01:12.248 [pool-2-thread-3] RunnerOfThread - End thread: 3
+[DEBUG] 2020-02-16 14:01:12.248 [pool-2-thread-2] WorkerWithThread - Start writing to thread: 2
+[DEBUG] 2020-02-16 14:01:12.248 [pool-2-thread-2] WorkerWithThread - Sum: 8
+[DEBUG] 2020-02-16 14:01:12.264 [pool-2-thread-2] WorkerWithThread - Matrix(size=5):
+5 0 5 0 0 
+0 1 0 3 0 
+0 2 2 0 4 
+0 1 0 3 0 
+0 0 0 0 4 
+[DEBUG] 2020-02-16 14:01:12.264 [pool-2-thread-2] WorkerWithThread - End writing to thread: 2
+[DEBUG] 2020-02-16 14:01:12.264 [pool-2-thread-2] RunnerOfThread - End thread: 2

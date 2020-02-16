@@ -32,13 +32,11 @@ public class Matrix {
         Matrix instance = MatrixHolder.INSTANCE;
         try {
             InitializerOfMatrixSizeAndThreadsNumber initializer = new InitializerOfMatrixSizeAndThreadsNumber();
-            if (initializer.initializeMatrixSize() <= initializer.initializeNumberOfIterations()) {
-                int size = initializer.initializeMatrixSize();
-                instance.setSize(size);
-                instance.setSizeToIntMatrix(size);
-                instance.setSizeToBooleanMatrix(size);
-                instance.setNumberOfIterations(initializer.initializeNumberOfIterations());
-            }
+            int size = initializer.initializeMatrixSize();
+            instance.setSize(size);
+            instance.setSizeToIntMatrix(size);
+            instance.setSizeToBooleanMatrix(size);
+            instance.setNumberOfIterations(initializer.initializeNumberOfIterations());
         } catch (InitializerOfMatrixSizeAndThreadsNumberException e) {
             LOGGER.error("Catch " + e);
         }
