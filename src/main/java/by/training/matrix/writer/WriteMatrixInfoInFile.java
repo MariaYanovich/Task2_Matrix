@@ -23,7 +23,7 @@ public class WriteMatrixInfoInFile {
 
     public void writeInFile(Matrix matrix) {
         try {
-            writer.write(matrix.toString());
+            writer.write("\n" + matrix.toString() + "\n");
             writer.close();
         } catch (IOException e) {
             LOGGER.error("Error in writing in the file");
@@ -32,7 +32,7 @@ public class WriteMatrixInfoInFile {
 
     public void writeInFile(int n1, int n2) {
         try {
-            writer.write("Thread " + n1 + ", sum " + n2 + "\n");
+            writer.write("\nThread " + n1 + ", sum " + n2);
             writer.close();
         } catch (IOException e) {
             LOGGER.error("Error in writing in the file");
